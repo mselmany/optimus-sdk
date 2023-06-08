@@ -15,10 +15,11 @@
     "prebuild": "rm -rf ./dist ./doc && npm run prettier",
     "build": "microbundle --no-pkg-main -f umd",
     "postbuild": "npm run doc",
-    "dev": "microbundle watch",
+    "dev": "microbundle watch & npm run test:dev",
     "doc": "typedoc src/index.ts",
     "prettier": "npx prettier --write .",
-    "test": "jest --watch",
+    "test": "jest",
+    "test:dev": "jest --watch",
     "prepare": "husky install"
   },
   "devDependencies": {
