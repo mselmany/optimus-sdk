@@ -1,15 +1,35 @@
-import WebApiSdk from './'
+import axios from 'axios'
+import nock from 'nock'
+import OptimusSDK from './'
 
-describe('WebApiSdk methods testing...', () => {
-  let client: WebApiSdk
+axios.defaults.adapter = 'http'
+axios.defaults.baseURL = 'http://alnus.esube.optimusyazilim.com.tr/'
+
+describe('OptimusSDK methods testing...', () => {
+  let client: OptimusSDK
 
   beforeAll(() => {
-    client = new WebApiSdk({ token: 'qwdas' })
+    client = new OptimusSDK({ token: 'asdasd', appName: 'sssdwe', baseURL: 'urllll' })
   })
 
-  test('login success', () => {
-    return client.login({ username: 'mamm', password: '123' }).then((data) => {
-      expect(data).toBe('mamm--')
-    })
+  test('Method: INT_HESAP_OZETI_MAIL_GONDER', async () => {
+    const body = { EMAIL: 'asd', BASLANGIC: 'ads' }
+    const res = { SUCCESS: true, MESSAGE: 'asdad' }
+    // axios.post.mockResolvedValue(res)
+    // axios.get.mockImplementation(() => Promise.resolve(resp))
+
+    // const scope = await axios.post(`/webapi/ApiCall/INT_HESAP_OZETI_MAIL_GONDER`).reply(200, 'test response')
+
+    const scope = nock('http://alnus.esube.optimusyazilim.com.tr/')
+      .post(`/webapi/ApiCall/INT_HESAP_OZETI_MAIL_GONDER`)
+      .reply(200, res)
+
+    // const data = await client.login(body)
+    // expect(data).toBe(res)
+
+    // client.request.api()
+
+    // Assert that the expected request was made.
+    scope.done()
   })
 })

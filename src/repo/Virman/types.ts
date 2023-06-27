@@ -1,0 +1,35 @@
+declare global {
+  namespace OptimusSDK {
+    enum Methods {
+      INT_MUSTERI_HISSE_EMANET_CIKIS_STOK_LISTESI = 'INT_MUSTERI_HISSE_EMANET_CIKIS_STOK_LISTESI',
+      INT_MUSTERI_HISSE_EMANET_CIKIS = 'INT_MUSTERI_HISSE_EMANET_CIKIS',
+      INT_MUSTERI_HISSE_EMANET_CIKIS_2FA_WITH_CHECK_PASSWORD = 'INT_MUSTERI_HISSE_EMANET_CIKIS_2FA/with-check-password',
+      INT_TAKAS_TALEPLERI_KRITERLI_RAPOR = 'INT_TAKAS_TALEPLERI_KRITERLI_RAPOR',
+      INT_MUSTERI_EMANET_VIRMAN_MASRAFI = 'INT_MUSTERI_EMANET_VIRMAN_MASRAFI',
+      INT_GET_KARSI_UYE = 'INT_GET_KARSI_UYE',
+    }
+  }
+}
+
+export type INT_MUSTERI_HISSE_EMANET_CIKIS_STOK_LISTESI = {
+  Params: {
+    DDDDD: number
+  }
+  Response: {
+    ANA: number
+    SUBE: number
+    MUSTERI_NO: number
+    MENKUL_NO: number
+    SKL_YERI: number
+    MENKUL_KODU: string
+    BAKIYE: number
+    MALIYET: number
+    UNVANI: string
+    T1BAKIYE: number
+    T2BAKIYE: number
+    CIKIS_TALEBI: number
+    BRUT_TAKAS_UYGULAMASI: number
+    TEMSILCI_CIKIS_BAKIYE: number
+    TEMSILCI_CIKIS_TUTAR: number
+  }
+}

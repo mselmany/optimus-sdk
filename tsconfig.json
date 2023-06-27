@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
+    "lib": ["ESNext"],
     "declaration": true,
     "noEmit": true,
     "isolatedModules": true,
@@ -14,9 +14,10 @@
     "sourceMap": true,
     "baseUrl": "./",
     "paths": {
-      "src/*": ["src/*"]
+      "src/*": ["src/*"],
+      "types/*": ["types/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "types/**/*"],
   "exclude": ["node_modules", "**/*.js"]
 }

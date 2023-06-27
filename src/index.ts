@@ -1,27 +1,27 @@
-import { MethodNames } from './MethodNames'
-import { RequestTypes } from './RequestTypes'
-import { ResponseTypes } from './ResponseTypes'
-import { transaction } from './requesters'
+import requester, { RequesterConfig } from 'src/requester'
+import store, { StoreConfig } from 'src/store'
 
-type InitParams = { token: string }
+// import GenericRequest from './repo/GenericRequest'
+import Virman from './repo/Virman'
 
-export default class WebApiSdk {
-  token
+type InitParams = StoreConfig & RequesterConfig
 
-  /**
-   * WebApiSdk config.
-   *
-   * @param config - gerekli bilgiler
-   * @param config.token - apiden veri alabilmek için gerekli token
-   * @returns WebApiSdk instance.
-   */
+export default class OptimusSDK {
+  private store: typeof store = store
+  private requester: typeof requester = requester
+
+  // request: GenericRequest
+  virman: Virman
+
   constructor(config: InitParams) {
-    this.token = config.token
+    this.store.setConfig({ token: config.token, appName: config.appName })
+    this.requester.initialize({ baseURL: config.baseURL })
+
+    // this.request = new GenericRequest()
+    this.virman = new Virman()
   }
 
-  async login({ username, password }: { username: string; password: string }) {
-    console.log({ username, password })
-    // const res = await transaction<RequestTypes["INT_HESAP_OZETI_MAIL_GONDER"], ResponseTypes["INT_HESAP_OZETI_MAIL_GONDER"]>(MethodNames.AL_SAT, { BASLANGIC: "asd", EMAIL: "adsdsad@asd.com" })
-    return 'mamm--'
+  async sert() {
+    const as = await this.virman.getStocks({ DDDDD: 12 })
   }
 }
