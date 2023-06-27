@@ -42,18 +42,6 @@ class Requester {
           }
         }
 
-        /* if (config.url?.includes('[webapi]')) {
-          config.url = this.baseURLMappings['[webapi]']
-        } else if (config.url?.includes('[apicall]')) {
-          config.url = this.baseURLMappings['[apicall]']
-        } else if (config.url?.includes('[enum]')) {
-          config.url = this.baseURLMappings['[enum]']
-        } else if (config.url?.includes('[anonymous]')) {
-          config.url = this.baseURLMappings['[anonymous]']
-          delete config.headers.token
-        } else if (config.url?.includes('[ping]')) {
-          config.url = this.baseURLMappings['[ping]']
-        } */
         return config
       },
       (error) => {
@@ -64,32 +52,32 @@ class Requester {
     return this
   }
 
-  webapi<ReqBody, ResBody>(apiMethod: OptimusSDK.Methods, body?: ReqBody): Promise<ResBody> {
-    return this.client.post(`[webapi]/${apiMethod}`, body)
-  }
+  // webapi<ReqBody, ResBody>(apiMethod: OptimusSDK.Methods, body?: ReqBody): Promise<ResBody> {
+  //   return this.client.post(`[webapi]/${apiMethod}`, body)
+  // }
 
-  apicall<T extends { Params: T['Params']; Response: T['Response'] }>(
-    apiMethod: OptimusSDK.Methods,
-    body?: T['Params'],
-  ): Promise<T['Response']> {
+  apicall(apiMethod: OptimusSDK.Methods, body?: any): Promise<never> {
     return this.client.post(`[apicall]/${apiMethod}`, body)
   }
 
-  apicall2(apiMethod: OptimusSDK.Methods, body?: any): Promise<never> {
-    return this.client.post(`[apicall]/${apiMethod}`, body)
-  }
+  // apicall222<T extends { Params: T['Params']; Response: T['Response'] }>(
+  //   apiMethod: OptimusSDK.Methods,
+  //   body?: T['Params'],
+  // ): Promise<T['Response']> {
+  //   return this.client.post(`[apicall]/${apiMethod}`, body)
+  // }
 
-  enum<ReqBody, ResBody>(apiMethod: OptimusSDK.Methods, body?: ReqBody): Promise<ResBody> {
-    return this.client.post(`[enum]/${apiMethod}`, body)
-  }
+  // enum<ReqBody, ResBody>(apiMethod: OptimusSDK.Methods, body?: ReqBody): Promise<ResBody> {
+  //   return this.client.post(`[enum]/${apiMethod}`, body)
+  // }
 
-  anonymous<ReqBody, ResBody>(apiMethod: OptimusSDK.Methods, body?: ReqBody): Promise<ResBody> {
-    return this.client.post(`[anonymous]/${apiMethod}`, body)
-  }
+  // anonymous<ReqBody, ResBody>(apiMethod: OptimusSDK.Methods, body?: ReqBody): Promise<ResBody> {
+  //   return this.client.post(`[anonymous]/${apiMethod}`, body)
+  // }
 
-  ping<ReqBody, ResBody>(apiMethod: OptimusSDK.Methods, body?: ReqBody): Promise<ResBody> {
-    return this.client.post(`[ping]/${apiMethod}`, body)
-  }
+  // ping<ReqBody, ResBody>(apiMethod: OptimusSDK.Methods, body?: ReqBody): Promise<ResBody> {
+  //   return this.client.post(`[ping]/${apiMethod}`, body)
+  // }
 }
 
 export default new Requester()
