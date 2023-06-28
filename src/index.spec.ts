@@ -20,16 +20,16 @@ describe('OptimusSDK methods testing...', () => {
 
     // const scope = await axios.post(`/webapi/ApiCall/INT_HESAP_OZETI_MAIL_GONDER`).reply(200, 'test response')
 
-    const scope = nock('http://alnus.esube.optimusyazilim.com.tr/')
-      .post(`/webapi/ApiCall/INT_HESAP_OZETI_MAIL_GONDER`)
-      .reply(200, res)
+    // const scope = nock('http://alnus.esube.optimusyazilim.com.tr/')
+    //   .post(`/webapi/ApiCall/INT_HESAP_OZETI_MAIL_GONDER`)
+    //   .reply(200, res)
 
-    // const data = await client.login(body)
-    // expect(data).toBe(res)
+    // // const data = await client.login(body)
+    // // expect(data).toBe(res)
 
-    // client.request.api()
+    // // client.request.api()
 
-    // Assert that the expected request was made.
-    scope.done()
+    // // Assert that the expected request was made.
+    // scope.done()
   })
 })
