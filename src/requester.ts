@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios'
 import packageJson from 'package.json'
 import store from './store'
+import { Methods } from './methods'
 
 export type RequesterConfig = {
   baseURL: string
@@ -56,7 +57,7 @@ class Requester {
   //   return this.client.post(`[webapi]/${apiMethod}`, body)
   // }
 
-  apicall(apiMethod: OptimusSDK.Methods, body?: any): Promise<never> {
+  apicall(apiMethod: Methods, body?: any): Promise<any> {
     return this.client.post(`[apicall]/${apiMethod}`, body)
   }
 

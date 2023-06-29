@@ -1,5 +1,7 @@
 {
-  "entryPoints": ["src/index.ts"],
+  "name": "OptimusSDK Documentation",
+  "entryPoints": ["./src"],
   "out": "docs",
+  "sort": ["source-order"],
   "exclude": ["**/*+(.spec|.e2e).ts"]
 }

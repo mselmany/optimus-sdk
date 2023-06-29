@@ -1,30 +1,22 @@
 import requester from 'src/requester'
 import store from 'src/store'
-import {
-  INT_RUCHAN_KULLANIM_ISLEM,
-  INT_RUCHAN_KULLANIM_LISTE,
-  INT_RUCHAN_KULLANIM_LISTE_SCHEME,
-  INT_RUCHAN_KULLANIM_LISTE_ZOD,
-} from './types'
+import { Methods } from 'src/methods'
 
-export default class CapitalIncrease {
+export class CapitalIncrease {
   private store: typeof store = store
   private requester: typeof requester = requester
 
   constructor() {}
 
-  async getAcquireList(body: INT_RUCHAN_KULLANIM_LISTE['Params']): Promise<INT_RUCHAN_KULLANIM_LISTE['Response']> {
-    return await this.requester.apicall(OptimusSDK.Methods.INT_RUCHAN_KULLANIM_LISTE, body)
+  async getAcquireList(
+    body: OptimusSDK.GetParams<Methods.INT_RUCHAN_KULLANIM_LISTE>,
+  ): Promise<OptimusSDK.GetResponse<Methods.INT_RUCHAN_KULLANIM_LISTE>> {
+    return await this.requester.apicall(Methods.INT_RUCHAN_KULLANIM_LISTE, body)
   }
 
-  async sendAcquireRequest(body: INT_RUCHAN_KULLANIM_ISLEM['Params']): Promise<INT_RUCHAN_KULLANIM_ISLEM['Response']> {
-    return await this.requester.apicall(OptimusSDK.Methods.INT_RUCHAN_KULLANIM_ISLEM, body)
-  }
-
-  async sendAcquireRequestWithZod(
-    body: INT_RUCHAN_KULLANIM_LISTE_ZOD['Params'],
-  ): Promise<INT_RUCHAN_KULLANIM_LISTE_ZOD['Response']> {
-    body = INT_RUCHAN_KULLANIM_LISTE_SCHEME.Params.parse(body)
-    return await this.requester.apicall(OptimusSDK.Methods.INT_RUCHAN_KULLANIM_ISLEM, body)
+  async sendAcquireRequest(
+    body: OptimusSDK.GetParams<Methods.INT_RUCHAN_KULLANIM_ISLEM>,
+  ): Promise<OptimusSDK.GetResponse<Methods.INT_RUCHAN_KULLANIM_ISLEM>> {
+    return await this.requester.apicall(Methods.INT_RUCHAN_KULLANIM_ISLEM, body)
   }
 }

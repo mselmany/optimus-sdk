@@ -1,6 +1,6 @@
 import axios from 'axios'
 import nock from 'nock'
-import OptimusSDK from './'
+import { OptimusSDK } from './'
 
 axios.defaults.adapter = 'http'
 axios.defaults.baseURL = 'http://alnus.esube.optimusyazilim.com.tr/'
